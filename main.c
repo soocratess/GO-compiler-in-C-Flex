@@ -15,11 +15,7 @@ int main(int argc, char *argv[]) {
     }
 
     /* Abre el archivo de entrada y lo asigna a yyin para que el lexer lo lea */
-    yyin = fopen(argv[1], "r");
-    if (yyin == NULL) {
-        perror("fopen");
-        return EXIT_FAILURE;
-    }
+    abrirArchivo(argv[1]);
 
     /* Inicializa y muestra la tabla de símbolos antes del análisis */
     crearTablaSimbolos();
@@ -34,6 +30,6 @@ int main(int argc, char *argv[]) {
     /* Libera los recursos de la tabla de símbolos */
     destruirTablaSimbolos();
 
-    fclose(yyin);
+    cerrarArchivo();
     return EXIT_SUCCESS;
 }

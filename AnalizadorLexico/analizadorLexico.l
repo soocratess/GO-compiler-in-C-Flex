@@ -135,18 +135,14 @@ string_lit               ({raw_string_lit}|{interpreted_string_lit})
 "~"         { return yytext[0]; }
 
 
-{binary_lit}      { yylval.str = strdup(yytext); return NUMERO; }
-{hex_lit}         { yylval.str = strdup(yytext); return NUMERO; }
-{octal_lit}       { yylval.str = strdup(yytext); return NUMERO; }
-{decimal_lit}     { yylval.str = strdup(yytext); return NUMERO; }
-{float_lit}       { yylval.str = strdup(yytext); return NUMERO; }
-{imaginary_lit}   { yylval.str = strdup(yytext); return NUMERO; }
-{string_lit}      { yylval.str = strdup(yytext); return STRING; }
-{ID} {
-    int simb = buscarElemento(yytext);
-    yylval.str = strdup(yytext);
-    return simb;
-}
+{binary_lit}      { return NUMERO; }
+{hex_lit}         { return NUMERO; }
+{octal_lit}       { return NUMERO; }
+{decimal_lit}     { return NUMERO; }
+{float_lit}       { return NUMERO; }
+{imaginary_lit}   { return NUMERO; }
+{string_lit}      { return STRING; }
+{ID} { int simb = buscarElemento(yytext); return simb; }
 
 [ \t]+             ;
 \n                 { num_linea++; }
@@ -167,4 +163,20 @@ int siguienteComponenteLexico(token *t) {
     t->identificador = tok;
     t->lexema = strdup(yytext);
     return 1;
+}
+
+void abrirArchivo(char *nombreArchivo) {
+        yyin = fopen(nombreArchivo, "r");
+    if (yyin == NULL) {
+        perror("fopen");
+        exit(1);
+    }
+}
+
+void cerrarArchivo() {
+    if (yyin != NULL) {
+        fclose(yyin); 
+        yyin = NULL; 
+    }
+    yylex_destroy();
 }

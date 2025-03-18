@@ -1165,74 +1165,70 @@ YY_RULE_SETUP
 case 49:
 YY_RULE_SETUP
 #line 138 "AnalizadorLexico/analizadorLexico.l"
-{ yylval.str = strdup(yytext); return NUMERO; }
+{ return NUMERO; }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
 #line 139 "AnalizadorLexico/analizadorLexico.l"
-{ yylval.str = strdup(yytext); return NUMERO; }
+{ return NUMERO; }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
 #line 140 "AnalizadorLexico/analizadorLexico.l"
-{ yylval.str = strdup(yytext); return NUMERO; }
+{ return NUMERO; }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
 #line 141 "AnalizadorLexico/analizadorLexico.l"
-{ yylval.str = strdup(yytext); return NUMERO; }
+{ return NUMERO; }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
 #line 142 "AnalizadorLexico/analizadorLexico.l"
-{ yylval.str = strdup(yytext); return NUMERO; }
+{ return NUMERO; }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
 #line 143 "AnalizadorLexico/analizadorLexico.l"
-{ yylval.str = strdup(yytext); return NUMERO; }
+{ return NUMERO; }
 	YY_BREAK
 case 55:
 /* rule 55 can match eol */
 YY_RULE_SETUP
 #line 144 "AnalizadorLexico/analizadorLexico.l"
-{ yylval.str = strdup(yytext); return STRING; }
+{ return STRING; }
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
 #line 145 "AnalizadorLexico/analizadorLexico.l"
-{
-    int simb = buscarElemento(yytext);
-    yylval.str = strdup(yytext);
-    return simb;
-}
+{ int simb = buscarElemento(yytext); return simb; }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 151 "AnalizadorLexico/analizadorLexico.l"
+#line 147 "AnalizadorLexico/analizadorLexico.l"
 ;
 	YY_BREAK
 case 58:
 /* rule 58 can match eol */
 YY_RULE_SETUP
-#line 152 "AnalizadorLexico/analizadorLexico.l"
+#line 148 "AnalizadorLexico/analizadorLexico.l"
 { num_linea++; }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 153 "AnalizadorLexico/analizadorLexico.l"
+#line 149 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 154 "AnalizadorLexico/analizadorLexico.l"
+#line 150 "AnalizadorLexico/analizadorLexico.l"
 {return FIN;}
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 156 "AnalizadorLexico/analizadorLexico.l"
+#line 152 "AnalizadorLexico/analizadorLexico.l"
 ECHO;
 	YY_BREAK
-#line 1236 "AnalizadorLexico/lex.yy.c"
+#line 1232 "AnalizadorLexico/lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2235,7 +2231,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 156 "AnalizadorLexico/analizadorLexico.l"
+#line 152 "AnalizadorLexico/analizadorLexico.l"
 
 
 #undef yywrap
@@ -2250,5 +2246,21 @@ int siguienteComponenteLexico(token *t) {
     t->identificador = tok;
     t->lexema = strdup(yytext);
     return 1;
+}
+
+void abrirArchivo(char *nombreArchivo) {
+        yyin = fopen(nombreArchivo, "r");
+    if (yyin == NULL) {
+        perror("fopen");
+        exit(1);
+    }
+}
+
+void cerrarArchivo() {
+    if (yyin != NULL) {
+        fclose(yyin); 
+        yyin = NULL; 
+    }
+    yylex_destroy();
 }
 

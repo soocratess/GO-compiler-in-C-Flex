@@ -10,4 +10,9 @@ int yylex(void);
 /* Función auxiliar para el analizador sintáctico */
 int siguienteComponenteLexico(token *t);
 
+void abrirArchivo(char *nombreArchivo);
+
+void cerrarArchivo();
+
+
 #endif /* ANALIZADOR_LEXICO_H */
