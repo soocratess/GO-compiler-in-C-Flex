@@ -76,6 +76,17 @@ raw_string_lit           {BACKTICK}([^`]|\n)*{BACKTICK}
 string_lit               ({raw_string_lit}|{interpreted_string_lit})
 
 %%
+
+"//".*             { /* Comentario de línea: se ignora */ }
+"/*"([^*]|\*+[^*/])*\*+"/" {
+    int i, nl = 0;
+    for (i = 0; i < yyleng; i++) {
+         if (yytext[i] == '\n') nl++;
+    }
+    num_linea += nl;
+    /* No se retorna token; se ignora el comentario */
+}
+
 "+="        { return OPERADOR; }
 "&="        { return OPERADOR; }
 "&&"        { return OPERADOR; }
