@@ -38,7 +38,6 @@ void iniciarAnalisis(){
         
         // Se libera la memoria del lexema si se ha solicitado.
         if (liberarMemoria) {free(t.lexema);}
-
     } while (t.identificador != FIN);
 
     printf("\n\n");

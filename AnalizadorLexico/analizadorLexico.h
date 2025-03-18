@@ -1,12 +1,8 @@
 #ifndef ANALIZADOR_LEXICO_H
 #define ANALIZADOR_LEXICO_H
 
-#include "definiciones.h"  /* Aquí se definen los tokens (BREAK, CASE, NUMERO, STRING, ID, etc.) */
-
-typedef struct {
-    char *lexema;
-    int identificador;
-} token;
+#include "TablaSimbolos/definiciones.h"  /* Aquí se definen los tokens (BREAK, CASE, NUMERO, STRING, ID, etc.) */
+#include "HashTable/hashTable.h"         /* Aquí se define la tabla de símbolos */
 
 /* Función generada por Flex */
 int yylex(void);
