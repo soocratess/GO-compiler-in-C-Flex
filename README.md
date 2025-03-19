@@ -50,8 +50,9 @@ análisis sintáctico.
 ```plaintext
 .
 ├── AnalizadorLexico
-│   ├── analizadorLexico.c
-│   └── analizadorLexico.h
+│   ├── analizadorLexico.h
+│   ├── analizadorLexico.l
+│   └── lex.yy.c
 ├── AnalizadorSintactico
 │   ├── analizadorSintactico.c
 │   └── analizadorSintactico.h
@@ -65,13 +66,10 @@ análisis sintáctico.
 ├── main.c
 ├── makefile
 ├── README.md
-├── SistemaEntrada
-│   ├── sistemaEntrada.c
-│   └── sistemaEntrada.h
 └── TablaSimbolos
-    ├── definiciones.h
-    ├── tablaSimbolos.c
-    └── tablaSimbolos.h
+    ├── definiciones.h
+    ├── tablaSimbolos.c
+    └── tablaSimbolos.h
 ```
 
 ## Funcionalidad
