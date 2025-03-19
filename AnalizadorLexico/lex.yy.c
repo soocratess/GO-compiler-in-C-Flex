@@ -601,6 +601,10 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "AnalizadorLexico/analizadorLexico.l"
 #line 2 "AnalizadorLexico/analizadorLexico.l"
+/* ------------------ */
+/*   Funciones en C   */
+/* ------------------ */
+
 #define _POSIX_C_SOURCE 200809L
 #include <unistd.h>
 #include "analizadorLexico.h"
@@ -609,19 +613,6 @@ char *yytext;
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-/* Función alternativa a strdup */
-char *my_strdup(const char *s) {
-    size_t len = strlen(s) + 1;
-    char *dup = malloc(len);
-    if (dup != NULL) {
-        memcpy(dup, s, len);
-    }
-    return dup;
-}
-
-/* Puedes definir una macro para reemplazar strdup por my_strdup */
-#define strdup my_strdup
 
 extern char *yytext;
 extern int yylex(void);
@@ -632,12 +623,12 @@ typedef struct {
 YYSTYPE yylval;
 
 int num_linea = 1;
-#line 636 "AnalizadorLexico/lex.yy.c"
-/* ---------------------- */
-/* Definición de macros   */
-/* ---------------------- */
+#line 627 "AnalizadorLexico/lex.yy.c"
+/* ------------------------ */
+/*  Definición de patrones  */
+/* ------------------------ */
 /* Básicos */
-#line 641 "AnalizadorLexico/lex.yy.c"
+#line 632 "AnalizadorLexico/lex.yy.c"
 
 #define INITIAL 0
 
@@ -854,10 +845,10 @@ YY_DECL
 		}
 
 	{
-#line 78 "AnalizadorLexico/analizadorLexico.l"
+#line 67 "AnalizadorLexico/analizadorLexico.l"
 
 
-#line 861 "AnalizadorLexico/lex.yy.c"
+#line 852 "AnalizadorLexico/lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -916,13 +907,13 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 80 "AnalizadorLexico/analizadorLexico.l"
+#line 69 "AnalizadorLexico/analizadorLexico.l"
 { /* Comentario de línea: se ignora */ }
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 81 "AnalizadorLexico/analizadorLexico.l"
+#line 70 "AnalizadorLexico/analizadorLexico.l"
 {
     int i, nl = 0;
     for (i = 0; i < yyleng; i++) {
@@ -934,301 +925,301 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 90 "AnalizadorLexico/analizadorLexico.l"
+#line 79 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 91 "AnalizadorLexico/analizadorLexico.l"
+#line 80 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 92 "AnalizadorLexico/analizadorLexico.l"
+#line 81 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 93 "AnalizadorLexico/analizadorLexico.l"
+#line 82 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 94 "AnalizadorLexico/analizadorLexico.l"
+#line 83 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 95 "AnalizadorLexico/analizadorLexico.l"
+#line 84 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 96 "AnalizadorLexico/analizadorLexico.l"
+#line 85 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 97 "AnalizadorLexico/analizadorLexico.l"
+#line 86 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 98 "AnalizadorLexico/analizadorLexico.l"
+#line 87 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 99 "AnalizadorLexico/analizadorLexico.l"
+#line 88 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 100 "AnalizadorLexico/analizadorLexico.l"
+#line 89 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 101 "AnalizadorLexico/analizadorLexico.l"
+#line 90 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 102 "AnalizadorLexico/analizadorLexico.l"
+#line 91 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 103 "AnalizadorLexico/analizadorLexico.l"
+#line 92 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 104 "AnalizadorLexico/analizadorLexico.l"
+#line 93 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 105 "AnalizadorLexico/analizadorLexico.l"
+#line 94 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 106 "AnalizadorLexico/analizadorLexico.l"
+#line 95 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 107 "AnalizadorLexico/analizadorLexico.l"
+#line 96 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 108 "AnalizadorLexico/analizadorLexico.l"
+#line 97 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 109 "AnalizadorLexico/analizadorLexico.l"
+#line 98 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 110 "AnalizadorLexico/analizadorLexico.l"
+#line 99 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 111 "AnalizadorLexico/analizadorLexico.l"
+#line 100 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 112 "AnalizadorLexico/analizadorLexico.l"
+#line 101 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 113 "AnalizadorLexico/analizadorLexico.l"
+#line 102 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 114 "AnalizadorLexico/analizadorLexico.l"
+#line 103 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 115 "AnalizadorLexico/analizadorLexico.l"
+#line 104 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 116 "AnalizadorLexico/analizadorLexico.l"
+#line 105 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 117 "AnalizadorLexico/analizadorLexico.l"
+#line 106 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 118 "AnalizadorLexico/analizadorLexico.l"
+#line 107 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 119 "AnalizadorLexico/analizadorLexico.l"
+#line 108 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 120 "AnalizadorLexico/analizadorLexico.l"
+#line 109 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 121 "AnalizadorLexico/analizadorLexico.l"
+#line 110 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 122 "AnalizadorLexico/analizadorLexico.l"
+#line 111 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 123 "AnalizadorLexico/analizadorLexico.l"
+#line 112 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 124 "AnalizadorLexico/analizadorLexico.l"
+#line 113 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 125 "AnalizadorLexico/analizadorLexico.l"
+#line 114 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 126 "AnalizadorLexico/analizadorLexico.l"
+#line 115 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 127 "AnalizadorLexico/analizadorLexico.l"
+#line 116 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 128 "AnalizadorLexico/analizadorLexico.l"
+#line 117 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 129 "AnalizadorLexico/analizadorLexico.l"
+#line 118 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 130 "AnalizadorLexico/analizadorLexico.l"
+#line 119 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 131 "AnalizadorLexico/analizadorLexico.l"
+#line 120 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 132 "AnalizadorLexico/analizadorLexico.l"
+#line 121 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 133 "AnalizadorLexico/analizadorLexico.l"
+#line 122 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 134 "AnalizadorLexico/analizadorLexico.l"
+#line 123 "AnalizadorLexico/analizadorLexico.l"
 { return OPERADOR; }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 135 "AnalizadorLexico/analizadorLexico.l"
+#line 124 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 138 "AnalizadorLexico/analizadorLexico.l"
+#line 127 "AnalizadorLexico/analizadorLexico.l"
 { return NUMERO; }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 139 "AnalizadorLexico/analizadorLexico.l"
+#line 128 "AnalizadorLexico/analizadorLexico.l"
 { return NUMERO; }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 140 "AnalizadorLexico/analizadorLexico.l"
+#line 129 "AnalizadorLexico/analizadorLexico.l"
 { return NUMERO; }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 141 "AnalizadorLexico/analizadorLexico.l"
+#line 130 "AnalizadorLexico/analizadorLexico.l"
 { return NUMERO; }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 142 "AnalizadorLexico/analizadorLexico.l"
+#line 131 "AnalizadorLexico/analizadorLexico.l"
 { return NUMERO; }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 143 "AnalizadorLexico/analizadorLexico.l"
+#line 132 "AnalizadorLexico/analizadorLexico.l"
 { return NUMERO; }
 	YY_BREAK
 case 55:
 /* rule 55 can match eol */
 YY_RULE_SETUP
-#line 144 "AnalizadorLexico/analizadorLexico.l"
+#line 133 "AnalizadorLexico/analizadorLexico.l"
 { return STRING; }
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 145 "AnalizadorLexico/analizadorLexico.l"
+#line 134 "AnalizadorLexico/analizadorLexico.l"
 { int simb = buscarElemento(yytext); return simb; }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 147 "AnalizadorLexico/analizadorLexico.l"
+#line 136 "AnalizadorLexico/analizadorLexico.l"
 ;
 	YY_BREAK
 case 58:
 /* rule 58 can match eol */
 YY_RULE_SETUP
-#line 148 "AnalizadorLexico/analizadorLexico.l"
+#line 137 "AnalizadorLexico/analizadorLexico.l"
 { num_linea++; }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 149 "AnalizadorLexico/analizadorLexico.l"
+#line 138 "AnalizadorLexico/analizadorLexico.l"
 { return yytext[0]; }
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 150 "AnalizadorLexico/analizadorLexico.l"
+#line 139 "AnalizadorLexico/analizadorLexico.l"
 {return FIN;}
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 152 "AnalizadorLexico/analizadorLexico.l"
+#line 141 "AnalizadorLexico/analizadorLexico.l"
 ECHO;
 	YY_BREAK
-#line 1232 "AnalizadorLexico/lex.yy.c"
+#line 1223 "AnalizadorLexico/lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2231,14 +2222,19 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 152 "AnalizadorLexico/analizadorLexico.l"
+#line 141 "AnalizadorLexico/analizadorLexico.l"
 
+
+/* ------------------ */
+/*   Funciones en C   */
+/* ------------------ */
 
 #undef yywrap
 int yywrap(void) {
     return 1;
 }
 
+/* Función para obtener el siguiente componente léxico */
 int siguienteComponenteLexico(token *t) {
     int tok = yylex();
     if (tok == 0)
@@ -2248,6 +2244,7 @@ int siguienteComponenteLexico(token *t) {
     return 1;
 }
 
+/* Función para cargar un archivo */
 void abrirArchivo(char *nombreArchivo) {
         yyin = fopen(nombreArchivo, "r");
     if (yyin == NULL) {
@@ -2256,6 +2253,7 @@ void abrirArchivo(char *nombreArchivo) {
     }
 }
 
+/* Función para cerrar un archivo */
 void cerrarArchivo() {
     if (yyin != NULL) {
         fclose(yyin); 

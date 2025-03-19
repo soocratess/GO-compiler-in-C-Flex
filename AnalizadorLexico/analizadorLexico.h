@@ -10,8 +10,8 @@ int yylex(void);
 /* Función auxiliar para el analizador sintáctico */
 int siguienteComponenteLexico(token *t);
 
+/* Funciones auxiliares para el manejo de archivos */
 void abrirArchivo(char *nombreArchivo);
-
 void cerrarArchivo();
 
 

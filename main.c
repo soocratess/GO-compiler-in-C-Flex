@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
     /* Libera los recursos de la tabla de símbolos */
     destruirTablaSimbolos();
 
+    /* Cierra el archivo de entrada */
     cerrarArchivo();
     return EXIT_SUCCESS;
 }
