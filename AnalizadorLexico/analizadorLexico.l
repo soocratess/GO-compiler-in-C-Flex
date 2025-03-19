@@ -1,4 +1,8 @@
 %{
+/* ------------------ */
+/*   Funciones en C   */
+/* ------------------ */
+
 #define _POSIX_C_SOURCE 200809L
 #include <unistd.h>
 #include "analizadorLexico.h"
@@ -7,19 +11,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-/* Función alternativa a strdup */
-char *my_strdup(const char *s) {
-    size_t len = strlen(s) + 1;
-    char *dup = malloc(len);
-    if (dup != NULL) {
-        memcpy(dup, s, len);
-    }
-    return dup;
-}
-
-/* Puedes definir una macro para reemplazar strdup por my_strdup */
-#define strdup my_strdup
 
 extern char *yytext;
 extern int yylex(void);
@@ -31,13 +22,11 @@ YYSTYPE yylval;
 
 int num_linea = 1;
 %}
-
+/* ------------------------ */
+/*  Definición de patrones  */
+/* ------------------------ */
 
 %option noyywrap
-
-/* ---------------------- */
-/* Definición de macros   */
-/* ---------------------- */
 
 /* Básicos */
 DIGITO          [0-9]
@@ -135,18 +124,14 @@ string_lit               ({raw_string_lit}|{interpreted_string_lit})
 "~"         { return yytext[0]; }
 
 
-{binary_lit}      { yylval.str = strdup(yytext); return NUMERO; }
-{hex_lit}         { yylval.str = strdup(yytext); return NUMERO; }
-{octal_lit}       { yylval.str = strdup(yytext); return NUMERO; }
-{decimal_lit}     { yylval.str = strdup(yytext); return NUMERO; }
-{float_lit}       { yylval.str = strdup(yytext); return NUMERO; }
-{imaginary_lit}   { yylval.str = strdup(yytext); return NUMERO; }
-{string_lit}      { yylval.str = strdup(yytext); return STRING; }
-{ID} {
-    int simb = buscarElemento(yytext);
-    yylval.str = strdup(yytext);
-    return simb;
-}
+{binary_lit}      { return NUMERO; }
+{hex_lit}         { return NUMERO; }
+{octal_lit}       { return NUMERO; }
+{decimal_lit}     { return NUMERO; }
+{float_lit}       { return NUMERO; }
+{imaginary_lit}   { return NUMERO; }
+{string_lit}      { return STRING; }
+{ID} { int simb = buscarElemento(yytext); return simb; }
 
 [ \t]+             ;
 \n                 { num_linea++; }
@@ -155,11 +140,16 @@ string_lit               ({raw_string_lit}|{interpreted_string_lit})
 
 %%
 
+/* ------------------ */
+/*   Funciones en C   */
+/* ------------------ */
+
 #undef yywrap
 int yywrap(void) {
     return 1;
 }
 
+/* Función para obtener el siguiente componente léxico */
 int siguienteComponenteLexico(token *t) {
     int tok = yylex();
     if (tok == 0)
@@ -167,4 +157,22 @@ int siguienteComponenteLexico(token *t) {
     t->identificador = tok;
     t->lexema = strdup(yytext);
     return 1;
+}
+
+/* Función para cargar un archivo */
+void abrirArchivo(char *nombreArchivo) {
+        yyin = fopen(nombreArchivo, "r");
+    if (yyin == NULL) {
+        perror("fopen");
+        exit(1);
+    }
+}
+
+/* Función para cerrar un archivo */
+void cerrarArchivo() {
+    if (yyin != NULL) {
+        fclose(yyin); 
+        yyin = NULL; 
+    }
+    yylex_destroy();
 }

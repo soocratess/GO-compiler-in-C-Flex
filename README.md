@@ -13,7 +13,7 @@ Para compilar y ejecutar este proyecto, asegúrate de tener instalados los sigui
 
 ## Archivos principales
 
-- **`P1.c`**: Contiene la implementación principal del analizador léxico y sintáctico.
+- **`goCompiler.c`**: Contiene la implementación principal del analizador léxico y sintáctico.
 - **`concurrentSum.go`**: Archivo de código fuente en Go que será analizado.
 - **`Makefile`**: Archivo para gestionar la compilación del proyecto.
 
@@ -32,26 +32,27 @@ cd <nombre_del_repositorio>
 make
 ```
 
-Este comando generará el ejecutable `P1` que contiene el programa principal.
+Este comando generará el ejecutable `goCompiler` que contiene el programa principal.
 
 ## Ejecución
 
 Para ejecutar el programa y analizar el archivo `concurrentSum.go`, simplemente ejecuta:
 
 ```bash
-./P1 concurrentSum.go
+./goCompiler concurrentSum.go
 ```
 
-El analizador léxico procesará el archivo `concurrentSum.go`, desglosando sus componentes léxicos y realizando el
-análisis sintáctico.
+El analizador léxico procesará el archivo `concurrentSum.go`, desglosando sus componentes léxicos y mostrándolos por
+terminal.
 
 ## Estructura del Proyecto
 
 ```plaintext
 .
 ├── AnalizadorLexico
-│   ├── analizadorLexico.c
-│   └── analizadorLexico.h
+│   ├── analizadorLexico.h
+│   ├── analizadorLexico.l
+│   └── lex.yy.c
 ├── AnalizadorSintactico
 │   ├── analizadorSintactico.c
 │   └── analizadorSintactico.h
@@ -65,13 +66,10 @@ análisis sintáctico.
 ├── main.c
 ├── makefile
 ├── README.md
-├── SistemaEntrada
-│   ├── sistemaEntrada.c
-│   └── sistemaEntrada.h
 └── TablaSimbolos
-    ├── definiciones.h
-    ├── tablaSimbolos.c
-    └── tablaSimbolos.h
+    ├── definiciones.h
+    ├── tablaSimbolos.c
+    └── tablaSimbolos.h
 ```
 
 ## Funcionalidad
